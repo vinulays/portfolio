@@ -1,10 +1,11 @@
 import { Header } from "@/sections/Header";
-import Image from "next/image";
+import { HeroSection } from "@/sections/HeroSection";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Header />
+      <HeroSection />
     </div>
   );
 }
