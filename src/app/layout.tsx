@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Vinula Senarathne - Portfolio | Developer | Freelancer",
   description:
     "Vinula Senarathne - A professional portfolio showcasing web and mobile development, design, and projects",
+  verification: {
+    google: "gzxo9DgfXzCvH-ihY6ezucgNXbltGrYxVU7kAsmgoLo",
+  },
 };
 
 export default function RootLayout({
