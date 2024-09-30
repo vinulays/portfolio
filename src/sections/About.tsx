@@ -41,7 +41,7 @@ const toolboxItems = [
 ];
 
 const hobbies = [
-  { title: "Painting", emoji: "🎨", left: "5%", top: "5%" },
+  { title: "Movies", emoji: "🍿", left: "5%", top: "5%" },
   { title: "Photography", emoji: "📷", left: "50%", top: "5%" },
   { title: "Gaming", emoji: "🎮", left: "10%", top: "35%" },
   { title: "Fitness", emoji: "💪", left: "35%", top: "40%" },
@@ -52,7 +52,7 @@ const About = () => {
   const constraintRef = useRef(null);
 
   return (
-    <div className="py-20 lg:py-28">
+    <div id="about" className="py-20 lg:py-28">
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
