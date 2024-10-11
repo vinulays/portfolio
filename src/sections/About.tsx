@@ -5,11 +5,14 @@ import SectionHeader from "@/components/SectionHeader";
 import StartIcon from "@/assets/icons/star.svg";
 import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
+
 import JavaScriptIcon from "@/assets/icons/square-js.svg";
 import HTMLIcon from "@/assets/icons/html5.svg";
 import CssIcon from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import GithubIcon from "@/assets/icons/github.svg";
+import FlutterIcon from "@/assets/icons/flutter.svg";
+
 import mapImage from "@/assets/images/location.webp";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
@@ -37,6 +40,10 @@ const toolboxItems = [
   {
     title: "GitHub",
     iconType: GithubIcon,
+  },
+  {
+    title: "Flutter",
+    iconType: FlutterIcon,
   },
 ];
 
