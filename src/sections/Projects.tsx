@@ -6,6 +6,7 @@ import ecommerceApp from "@/assets/images/ecommerce.png";
 import ecommerceAppMobile from "@/assets/images/ecommerce_mobile.png";
 import coworkingSpaceApp from "@/assets/images/coworking_space.png";
 import coworkingSpaceAppMobile from "@/assets/images/coworking_space._mobile.png";
+import recyChampApp from "@/assets/images/recychamp.png";
 
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
@@ -16,7 +17,21 @@ import { useEffect, useState } from "react";
 const portfolioProjects = [
   {
     id: 1,
-    company: "Personal Project",
+    company: "Flutter",
+    year: "2024",
+    title: "Environment based mobile application",
+    results: [
+      { title: "Enhanced user experience by 40%" },
+      { title: "Improved site speed by 50%" },
+      { title: "Increased mobile traffic by 35%" },
+    ],
+    link: "https://github.com/vinulays/recychamp",
+    image: recyChampApp,
+    type: "mobile",
+  },
+  {
+    id: 2,
+    company: "Flutter",
     year: "2024",
     title: "E-commerce mobile application",
     results: [
@@ -24,14 +39,14 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://live-docs-vinula.vercel.app",
+    link: "https://github.com/vinulays/flutter-ecommerce",
     image: ecommerceApp,
     mobileImage: ecommerceAppMobile,
     type: "mobile",
   },
   {
-    id: 2,
-    company: "Shredex Canada",
+    id: 3,
+    company: "Flutter",
     year: "2024",
     title: "Co-working space booking mobile application",
     results: [
@@ -39,14 +54,14 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://live-docs-vinula.vercel.app",
+    link: "",
     image: coworkingSpaceApp,
     mobileImage: coworkingSpaceAppMobile,
     type: "mobile",
   },
   {
-    id: 3,
-    company: "Personal Project",
+    id: 4,
+    company: "Next.js",
     year: "2024",
     title: "Realtime Collaborative Document Editing Platform",
     results: [
@@ -59,8 +74,8 @@ const portfolioProjects = [
     type: "web",
   },
   {
-    id: 4,
-    company: "Personal Project",
+    id: 5,
+    company: "Next.js",
     year: "2024",
     title: "Client side video converter application",
     results: [
@@ -128,14 +143,20 @@ const Projects = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link}>
-                    <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 -mb-4 md:-mb-0">
+                  <a href={project.link !== "" ? project.link : undefined}>
+                    <button
+                      className={`bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 -mb-4 md:-mb-0 ${
+                        !project.link && "cursor-not-allowed disabled"
+                      }`}
+                    >
                       <span>
                         {project.type === "web"
                           ? "Visit Live Site"
-                          : "Visit GitHub Repository"}
+                          : project.link !== ""
+                          ? "Visit GitHub Repository"
+                          : "No link found :("}
                       </span>
-                      <ArrowUpRightIcon className="size-4" />
+                      {project.link && <ArrowUpRightIcon className="size-4" />}
                     </button>
                   </a>
                 </div>
