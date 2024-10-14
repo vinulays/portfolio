@@ -1,56 +1,21 @@
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+"use client";
+
 import liveDocsPage from "@/assets/images/live-docs.png";
 import convertifyPage from "@/assets/images/convertify.png";
 import ecommerceApp from "@/assets/images/ecommerce.png";
+import ecommerceAppMobile from "@/assets/images/ecommerce_mobile.png";
 import coworkingSpaceApp from "@/assets/images/coworking_space.png";
+import coworkingSpaceAppMobile from "@/assets/images/coworking_space._mobile.png";
 
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
-import grainImage from "@/assets/images/grain.jpg";
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
+import { useEffect, useState } from "react";
 const portfolioProjects = [
-  // {
-  //   company: "Acme Corp",
-  //   year: "2022",
-  //   title: "Dark Saas Landing Page",
-  //   results: [
-  //     { title: "Enhanced user experience by 40%" },
-  //     { title: "Improved site speed by 50%" },
-  //     { title: "Increased mobile traffic by 35%" },
-  //   ],
-  //   link: "https://youtu.be/4k7IdSLxh6w",
-  //   image: darkSaasLandingPage,
-  // },
-  // {
-  //   company: "Innovative Co",
-  //   year: "2021",
-  //   title: "Light Saas Landing Page",
-  //   results: [
-  //     { title: "Boosted sales by 20%" },
-  //     { title: "Expanded customer reach by 35%" },
-  //     { title: "Increased brand awareness by 15%" },
-  //   ],
-  //   link: "https://youtu.be/7hi5zwO75yc",
-  //   image: lightSaasLandingPage,
-  // },
-  // {
-  //   company: "Quantum Dynamics",
-  //   year: "2023",
-  //   title: "AI Startup Landing Page",
-  //   results: [
-  //     { title: "Enhanced user experience by 40%" },
-  //     { title: "Improved site speed by 50%" },
-  //     { title: "Increased mobile traffic by 35%" },
-  //   ],
-  //   link: "https://youtu.be/Z7I5uSRHMHg",
-  //   image: aiStartupLandingPage,
-  // },
-
   {
+    id: 1,
     company: "Personal Project",
     year: "2024",
     title: "E-commerce mobile application",
@@ -61,9 +26,11 @@ const portfolioProjects = [
     ],
     link: "https://live-docs-vinula.vercel.app",
     image: ecommerceApp,
+    mobileImage: ecommerceAppMobile,
     type: "mobile",
   },
   {
+    id: 2,
     company: "Shredex Canada",
     year: "2024",
     title: "Co-working space booking mobile application",
@@ -74,9 +41,11 @@ const portfolioProjects = [
     ],
     link: "https://live-docs-vinula.vercel.app",
     image: coworkingSpaceApp,
+    mobileImage: coworkingSpaceAppMobile,
     type: "mobile",
   },
   {
+    id: 3,
     company: "Personal Project",
     year: "2024",
     title: "Realtime Collaborative Document Editing Platform",
@@ -90,6 +59,7 @@ const portfolioProjects = [
     type: "web",
   },
   {
+    id: 4,
     company: "Personal Project",
     year: "2024",
     title: "Client side video converter application",
@@ -105,6 +75,20 @@ const portfolioProjects = [
 ];
 
 const Projects = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section id="projects" className="pb-16 lg:py-24">
       <div className="container">
@@ -116,7 +100,7 @@ const Projects = () => {
         <div className="flex flex-col mt-10 md:mt-20 gap-20">
           {portfolioProjects.map((project, index) => (
             <Card
-              key={project.title}
+              key={project.id}
               className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
               style={{
                 top: `calc(64px + ${index * 40}px)`,
@@ -157,12 +141,16 @@ const Projects = () => {
                 </div>
                 <div className="relative">
                   <Image
-                    src={project.image}
+                    src={
+                      isMobile && project.mobileImage
+                        ? project.mobileImage
+                        : project.image
+                    }
                     alt={project.title}
-                    className={`mt-8 mb-8 lg:mb-0 lg:absolute lg:max-w-none ${
+                    className={`lg:mb-0 lg:absolute lg:max-w-none ${
                       project.type === "web"
-                        ? "lg:scale-105 lg:mt-6 lg:h-full lg:w-auto"
-                        : "lg:scale-125 lg:mt-12 lg:h-auto lg:w-full"
+                        ? "lg:scale-105 mt-8 mb-8 lg:mt-6 lg:h-full lg:w-auto"
+                        : "lg:scale-125 mt-1 mb-0 lg:mt-12 lg:h-auto lg:w-full"
                     }`}
                   />
                 </div>
