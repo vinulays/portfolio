@@ -3,6 +3,8 @@ import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import liveDocsPage from "@/assets/images/live-docs.png";
 import convertifyPage from "@/assets/images/convertify.png";
+import ecommerceApp from "@/assets/images/ecommerce.png";
+import coworkingSpaceApp from "@/assets/images/coworking_space.png";
 
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
@@ -47,6 +49,33 @@ const portfolioProjects = [
   //   link: "https://youtu.be/Z7I5uSRHMHg",
   //   image: aiStartupLandingPage,
   // },
+
+  {
+    company: "Personal Project",
+    year: "2024",
+    title: "E-commerce mobile application",
+    results: [
+      { title: "Enhanced user experience by 40%" },
+      { title: "Improved site speed by 50%" },
+      { title: "Increased mobile traffic by 35%" },
+    ],
+    link: "https://live-docs-vinula.vercel.app",
+    image: ecommerceApp,
+    type: "mobile",
+  },
+  {
+    company: "Shredex Canada",
+    year: "2024",
+    title: "Co-working space booking mobile application",
+    results: [
+      { title: "Enhanced user experience by 40%" },
+      { title: "Improved site speed by 50%" },
+      { title: "Increased mobile traffic by 35%" },
+    ],
+    link: "https://live-docs-vinula.vercel.app",
+    image: coworkingSpaceApp,
+    type: "mobile",
+  },
   {
     company: "Personal Project",
     year: "2024",
@@ -58,6 +87,7 @@ const portfolioProjects = [
     ],
     link: "https://live-docs-vinula.vercel.app",
     image: liveDocsPage,
+    type: "web",
   },
   {
     company: "Personal Project",
@@ -70,6 +100,7 @@ const portfolioProjects = [
     ],
     link: "https://convertify-vinulays.vercel.app",
     image: convertifyPage,
+    type: "web",
   },
 ];
 
@@ -115,7 +146,11 @@ const Projects = () => {
                   </ul>
                   <a href={project.link}>
                     <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 -mb-4 md:-mb-0">
-                      <span>Visit Live Site</span>
+                      <span>
+                        {project.type === "web"
+                          ? "Visit Live Site"
+                          : "Visit GitHub Repository"}
+                      </span>
                       <ArrowUpRightIcon className="size-4" />
                     </button>
                   </a>
@@ -124,7 +159,11 @@ const Projects = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 mb-8 lg:mb-0 lg:mt-6 lg:absolute lg:h-full lg:w-auto lg:max-w-none lg:scale-105"
+                    className={`mt-8 mb-8 lg:mb-0 lg:absolute lg:max-w-none ${
+                      project.type === "web"
+                        ? "lg:scale-105 lg:mt-6 lg:h-full lg:w-auto"
+                        : "lg:scale-125 lg:mt-12 lg:h-auto lg:w-full"
+                    }`}
                   />
                 </div>
               </div>
