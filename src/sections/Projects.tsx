@@ -154,7 +154,7 @@ const Projects = () => {
                           ? "Visit Live Site"
                           : project.link !== ""
                           ? "Visit GitHub Repository"
-                          : "No link found :("}
+                          : "No link found"}
                       </span>
                       {project.link && <ArrowUpRightIcon className="size-4" />}
                     </button>
