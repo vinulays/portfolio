@@ -1,17 +1,17 @@
 import StarIcon from "@/assets/icons/star.svg";
 
 const words = [
-  "Performant",
-  "Accessible",
-  "Secure",
-  "Interactive",
-  "Scable",
-  "User Friendly",
-  "Responsive",
-  "Maintainable",
-  "Search Optimized",
-  "Usable",
-  "Reliable",
+  { id: 1, text: "Performant" },
+  { id: 2, text: "Accessible" },
+  { id: 3, text: "Secure" },
+  { id: 4, text: "Interactive" },
+  { id: 5, text: "Scable" },
+  { id: 6, text: "User Friendly" },
+  { id: 7, text: "Responsive" },
+  { id: 8, text: "Maintainable" },
+  { id: 9, text: "Search Optimized" },
+  { id: 10, text: "Usable" },
+  { id: 11, text: "Reliable" },
 ];
 
 const Tape = () => {
@@ -24,9 +24,12 @@ const Tape = () => {
               {[...new Array(2)].fill(0).map((_, idx) => (
                 <>
                   {words.map((word) => (
-                    <div key={word} className="inline-flex items-center gap-4">
+                    <div
+                      key={word.id}
+                      className="inline-flex items-center gap-4"
+                    >
                       <span className="text-gray-900 uppercase font-extrabold text-sm">
-                        {word}
+                        {word.text}
                       </span>
                       <StarIcon className="size-6 text-gray-900 -rotate-12" />
                     </div>
