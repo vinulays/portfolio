@@ -1,4 +1,5 @@
 import StarIcon from "@/assets/icons/star.svg";
+import React from "react";
 
 const words = [
   { id: 1, text: "Performant" },
@@ -22,7 +23,7 @@ const Tape = () => {
           <div className="flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex flex-none gap-4 pr-4 py-3 animate-move-left">
               {[...new Array(2)].fill(0).map((_, idx) => (
-                <>
+                <React.Fragment key={idx}>
                   {words.map((word) => (
                     <div
                       key={word.id}
@@ -34,7 +35,7 @@ const Tape = () => {
                       <StarIcon className="size-6 text-gray-900 -rotate-12" />
                     </div>
                   ))}
-                </>
+                </React.Fragment>
               ))}
             </div>
           </div>
