@@ -123,15 +123,18 @@ const Projects = () => {
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
-                  <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                  <div className="bg-linear-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
                     <span>{project.company}</span>
                     <span>&bull;</span>
                     <span>{project.year}</span>
                   </div>
+
                   <h3 className="font-serif text-2xl md:text-4xl mt-2 md:mt-5">
                     {project.title}
                   </h3>
+
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                     {project.results.map((result) => (
                       <li
@@ -143,9 +146,10 @@ const Projects = () => {
                       </li>
                     ))}
                   </ul>
+
                   <a href={project.link !== "" ? project.link : undefined}>
                     <button
-                      className={`bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 -mb-4 md:-mb-0 ${
+                      className={`bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 -mb-4 md:mb-0 ${
                         !project.link && "cursor-not-allowed disabled"
                       }`}
                     >
@@ -153,13 +157,15 @@ const Projects = () => {
                         {project.type === "web"
                           ? "Visit Live Site"
                           : project.link !== ""
-                          ? "Visit GitHub Repository"
-                          : "No link found"}
+                            ? "Visit GitHub Repository"
+                            : "No link found"}
                       </span>
+
                       {project.link && <ArrowUpRightIcon className="size-4" />}
                     </button>
                   </a>
                 </div>
+
                 <div className="relative">
                   <Image
                     src={

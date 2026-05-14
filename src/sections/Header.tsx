@@ -52,8 +52,9 @@ const Header = () => {
           }}
         />
       </Head>
+
       <div className="flex justify-center items-center fixed top-3 w-full z-10">
-        <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur">
+        <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur-sm">
           <a
             href="#"
             className={`nav-item ${
@@ -64,6 +65,7 @@ const Header = () => {
           >
             Home
           </a>
+
           <a
             href="#projects"
             className={`nav-item ${
@@ -74,6 +76,7 @@ const Header = () => {
           >
             Projects
           </a>
+
           <a
             href="#about"
             className={`nav-item ${
@@ -84,6 +87,7 @@ const Header = () => {
           >
             About
           </a>
+
           <a
             href="#contact"
             className={`nav-item ${
