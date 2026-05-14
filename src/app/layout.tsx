@@ -27,12 +27,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "Person",
+              name: "Vinula Senarathne",
+              url: "https://vinulasenarathne.vercel.app/",
+              image: "",
+              sameAs: [
+                "https://www.linkedin.com/in/vinula-senarathne",
+                "https://github.com/vinulays",
+                "https://www.facebook.com/vinulasen",
+              ],
+              jobTitle: "Full Stack Developer",
+            }),
+          }}
+        />
+      </head>
+
       <body
+        suppressHydrationWarning
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-gray-900 text-white antialiased font-sans"
+          "bg-gray-900 text-white antialiased font-sans",
         )}
       >
         {children}
