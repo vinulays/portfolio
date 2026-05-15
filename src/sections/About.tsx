@@ -2,7 +2,6 @@
 
 import Card from "@/components/Card";
 import SectionHeader from "@/components/SectionHeader";
-import StartIcon from "@/assets/icons/star.svg";
 import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
 

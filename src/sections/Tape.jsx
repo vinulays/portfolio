@@ -1,4 +1,4 @@
-import StarIcon from "@/assets/icons/star.svg";
+import { StarIcon } from "lucide-react";
 import React from "react";
 
 const words = [
