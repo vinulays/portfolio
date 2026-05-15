@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="py-24 md:py-40">
+    <div className="pt-24 md:pt-40">
       <div className="container">
         <div className="flex flex-col items-start">
           <div className="bg-gray-950 flex items-center gap-3">
@@ -33,7 +33,7 @@ const Hero = () => {
 
         <div className="items-center mt-8 gap-4">
           <a href="mailto:vinula.senarathne@gmail.com">
-            <button className="inline-flex items-center cursor-pointer gap-2 border border-white text-black bg-white px-6 h-12 rounded-lg">
+            <button className="items-center cursor-pointer gap-2 border border-white text-black bg-white px-4 h-12 rounded-lg">
               <span className="font-semibold">Contact Me</span>
             </button>
           </a>
