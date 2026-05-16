@@ -1,5 +1,7 @@
 "use client";
 
+import Signature from "@/components/Signature";
+
 const About = () => {
   return (
     <div id="about" className="">
@@ -27,6 +29,12 @@ const About = () => {
               in building impactful software products, exploring cloud and AI
               technologies, and continuously improving my skills through
               practical development, collaboration, and problem-solving.
+            </div>
+
+            <div className="space-y-2.5 mt-3">
+              <Signature />
+
+              <div>Vinula Senarathne</div>
             </div>
           </div>
         </div>
