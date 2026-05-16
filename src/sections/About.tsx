@@ -4,7 +4,7 @@ import Signature from "@/components/Signature";
 
 const About = () => {
   return (
-    <div id="about" className="">
+    <div id="about">
       <div className="container">
         <div className="flex justify-between pt-20 text-muted-foreground">
           <div>ABOUT ME</div>

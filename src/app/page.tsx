@@ -5,6 +5,7 @@ import Header from "@/sections/Header";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
 import Tape from "@/sections/Tape";
+import TechStack from "@/sections/TechStack";
 import Testimonials from "@/sections/Testimonials";
 
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
       <Hero />
 
       <About />
+
+      <TechStack />
 
       <Projects />
 
