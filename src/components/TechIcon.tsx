@@ -3,7 +3,7 @@
 import { twMerge } from "tailwind-merge";
 
 type TechIconProps = {
-  icon: { path: string; hex: string };
+  icon: { path: string; hex: string; viewBox?: string };
   className?: string;
 };
 
@@ -12,7 +12,7 @@ const TechIcon = ({ icon, className }: TechIconProps) => {
     <div className="fill-muted-foreground items-center">
       <svg
         role="img"
-        viewBox="0 0 24 24"
+        viewBox={icon.viewBox ?? "0 0 24 24"}
         className={twMerge("w-12 h-12 transition duration-300", className)}
       >
         <path d={icon.path} />

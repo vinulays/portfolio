@@ -13,6 +13,7 @@ import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 import { useEffect, useState } from "react";
 import { ArrowUpRightIcon, CheckCircleIcon } from "lucide-react";
+
 const portfolioProjects = [
   {
     id: 1,
