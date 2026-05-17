@@ -11,7 +11,7 @@ const linkedinIcon = {
 const Contact = () => {
   return (
     <div id="contact" className="py-16 pt-12 lg:py-24 lg:pt-20">
-      <div className="container space-y-14">
+      <div className="container space-y-24">
         <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-16 items-center">
           <h2 className="font-normal text-lg max-w-xs text-muted-foreground">
             Let&apos;s create something amazing together.

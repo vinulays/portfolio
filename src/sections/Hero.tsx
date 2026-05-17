@@ -17,7 +17,7 @@ const Hero = () => {
         <div className="max-w-2xl space-y-2 mt-3">
           <div className="space-y-0.5">
             <h1 className="text-3xl md:text-4xl tracking-tight">
-              Halo, I&apos;m Vinula Senarathne
+              Hello, I&apos;m Vinula Senarathne
             </h1>
 
             <h1 className="text-3xl md:text-4xl tracking-tight">
