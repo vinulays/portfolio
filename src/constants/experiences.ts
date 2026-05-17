@@ -13,6 +13,7 @@ import {
   siGithubactions,
   siRedis,
   siSocketdotio,
+  siCodemagic,
 } from "simple-icons";
 
 export const experiences = [
@@ -95,6 +96,10 @@ export const experiences = [
       {
         name: "CSS",
         icon: siCss,
+      },
+      {
+        name: "Codemagic",
+        icon: siCodemagic,
       },
     ],
   },
