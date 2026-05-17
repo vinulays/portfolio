@@ -1,16 +1,19 @@
 "use client";
 
+import { twMerge } from "tailwind-merge";
+
 type TechIconProps = {
   icon: { path: string; hex: string };
+  className?: string;
 };
 
-const TechIcon = ({ icon }: TechIconProps) => {
+const TechIcon = ({ icon, className }: TechIconProps) => {
   return (
     <div className="fill-muted-foreground items-center">
       <svg
         role="img"
         viewBox="0 0 24 24"
-        className="w-12 h-12 transition duration-300"
+        className={twMerge("w-12 h-12 transition duration-300", className)}
       >
         <path d={icon.path} />
       </svg>

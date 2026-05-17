@@ -1,5 +1,6 @@
 import About from "@/sections/About";
 import Contact from "@/sections/Contact";
+import Experience from "@/sections/Experience";
 import Footer from "@/sections/Footer";
 import Header from "@/sections/Header";
 import Hero from "@/sections/Hero";
@@ -18,6 +19,8 @@ export default function Home() {
       <About />
 
       <TechStack />
+
+      <Experience />
 
       <Projects />
 
