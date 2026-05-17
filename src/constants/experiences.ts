@@ -8,6 +8,11 @@ import {
   siFlutter,
   siHtml5,
   siCss,
+  siGrafana,
+  siNatsdotio,
+  siGithubactions,
+  siRedis,
+  siSocketdotio,
 } from "simple-icons";
 
 export const experiences = [
@@ -46,6 +51,26 @@ export const experiences = [
       {
         name: "PostgreSQL",
         icon: siPostgresql,
+      },
+      {
+        name: "Redis",
+        icon: siRedis,
+      },
+      {
+        name: "Socket.IO",
+        icon: siSocketdotio,
+      },
+      {
+        name: "Grafana",
+        icon: siGrafana,
+      },
+      {
+        name: "NATS",
+        icon: siNatsdotio,
+      },
+      {
+        name: "GitHub Actions",
+        icon: siGithubactions,
       },
     ],
   },
