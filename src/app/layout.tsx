@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -56,7 +57,7 @@ export default function RootLayout({
           "bg-background text-foreground antialiased font-sans",
         )}
       >
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
