@@ -1,41 +1,83 @@
-import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+"use client";
 
-const footerLinks = [
-  { title: "GitHub", href: "https://github.com/vinulays" },
-  {
-    title: "Stackoverflow",
-    href: "https://stackoverflow.com/users/16999008/vinula-senarathne",
-  },
-  { title: "LinkedIn", href: "https://www.linkedin.com/in/vinula-senarathne/" },
-];
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return (
-    <footer className="relative overflow-x-clip">
-      <div className="absolute h-100 w-400 bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 mask-[radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10"></div>
-      <div className="container">
-        <div className="border-t border-white/15 py-6 text-sm flex flex-col md:flex-row md:justify-between gap-8 items-center">
-          <div className="text-white/40">
-            &copy; {currentYear}, All rights reserved.
-          </div>
 
-          <div>
-            <nav className="flex flex-col md:flex-row items-center gap-8">
-              {footerLinks.map((link) => (
-                <a
-                  href={link.href}
-                  key={link.title}
-                  className="inline-flex items-center gap-1.5"
-                >
-                  <span className="font-semibold">{link.title}</span>
-                  <ArrowUpRightIcon className="size-4" />
-                </a>
-              ))}
-            </nav>
-          </div>
-        </div>
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!textRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        textRef.current,
+        {
+          y: 80,
+          opacity: 0,
+          scale: 0.9,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.4,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: 1,
+          },
+        },
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <footer className="relative overflow-hidden pt-2">
+      <div className="text-white/40 text-sm text-center">
+        copyright &copy; {currentYear}, All rights reserved.
       </div>
+
+      <div
+        ref={textRef}
+        className="
+        -mb-16
+        w-full
+        text-center
+        font-black
+        leading-none
+        whitespace-nowrap
+        select-none
+        tracking-[-0.04em]
+        text-[clamp(4rem,18vw,14rem)]
+        text-muted-foreground
+        will-change-transform
+      "
+      >
+        VINULA
+      </div>
+
+      <div
+        className="
+        absolute
+        inset-x-0
+        bottom-0
+        h-32
+        bg-linear-to-t
+        from-background
+        to-transparent
+        pointer-events-none
+      "
+      />
     </footer>
   );
 };

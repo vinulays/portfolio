@@ -9,11 +9,11 @@ import coworkingSpaceAppMobile from "@/assets/images/coworking_space._mobile.png
 import recyChampApp from "@/assets/images/recychamp.png";
 
 import Image from "next/image";
-import CheckCircleIcon from "@/assets/icons/check-circle.svg";
-import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 import { useEffect, useState } from "react";
+import { ArrowUpRightIcon, CheckCircleIcon } from "lucide-react";
+
 const portfolioProjects = [
   {
     id: 1,

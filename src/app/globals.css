@@ -18,6 +18,10 @@
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(1 0 0);
+  --color-muted-foreground: oklch(0.6 0 0);
+
   --animate-ping-large: ping-large 1s ease-in-out infinite;
   --animate-move-left: move-left 30s linear infinite;
   --animate-move-right: move-right 30s linear infinite;
@@ -65,10 +69,14 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  html.lenis {
+    scroll-behavior: auto !important;
+  }
 }
 
 @utility container {
-  @apply lg:max-w-5xl;
+  @apply lg:max-w-4xl;
 }
 
 @layer base {
