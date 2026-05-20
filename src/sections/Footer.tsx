@@ -12,42 +12,63 @@ const Footer = () => {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!textRef.current) return;
+    if (!textRef.current) {
+      return;
+    }
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        textRef.current,
-        {
-          y: 80,
-          opacity: 0,
-          scale: 0.9,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.4,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: textRef.current,
-            start: 'top bottom',
-            end: 'bottom bottom',
-            scrub: 1,
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 768px)', () => {
+        gsap.fromTo(
+          textRef.current,
+          { y: 80, opacity: 0, scale: 0.9 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1.4,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: textRef.current,
+              start: 'top bottom',
+              end: 'bottom bottom',
+              scrub: 1,
+            },
           },
-        },
-      );
+        );
+      });
+
+      mm.add('(max-width: 767px)', () => {
+        gsap.fromTo(
+          textRef.current,
+          { opacity: 0, scale: 0.92 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: textRef.current,
+              start: 'top 95%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          },
+        );
+      });
     });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <footer className="relative overflow-hidden pt-2">
+    <footer className="relative overflow-hidden pt-2 pb-0">
       <div className="text-center text-sm text-white/40">copyright &copy; {currentYear}, All rights reserved.</div>
 
       <div
         ref={textRef}
-        className="-mb-16 w-full text-center text-[clamp(4rem,18vw,14rem)] leading-none font-black tracking-[-0.04em] whitespace-nowrap text-muted-foreground will-change-transform select-none"
+        className="w-full text-center text-[clamp(4rem,18vw,14rem)] leading-none font-black tracking-[-0.04em] whitespace-nowrap text-muted-foreground will-change-transform select-none lg:-mb-16"
       >
         VINULA
       </div>
