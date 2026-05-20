@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const Header = () => {
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "contact"];
-      let currentSection = "home";
+      const sections = ['home', 'about', 'experience', 'projects', 'contact'];
+      let currentSection = 'home';
 
       sections.forEach((section) => {
         const element = document.getElementById(section);
@@ -22,23 +22,21 @@ const Header = () => {
       setActiveSection(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <>
-      <div className="flex justify-center items-center fixed top-3 w-full z-10">
-        <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur-sm">
+      <div className="fixed top-3 z-10 flex w-full items-center justify-center">
+        <nav className="flex gap-1 rounded-full border border-white/15 bg-white/10 p-0.5 backdrop-blur-sm">
           <a
             href="#"
             className={`nav-item ${
-              activeSection === "home"
-                ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
-                : ""
+              activeSection === 'home' ? 'bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900' : ''
             } `}
           >
             Home
@@ -47,9 +45,7 @@ const Header = () => {
           <a
             href="#about"
             className={`nav-item ${
-              activeSection === "about"
-                ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
-                : ""
+              activeSection === 'about' ? 'bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900' : ''
             } `}
           >
             About
@@ -58,9 +54,7 @@ const Header = () => {
           <a
             href="#experience"
             className={`nav-item ${
-              activeSection === "experience"
-                ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
-                : ""
+              activeSection === 'experience' ? 'bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900' : ''
             } `}
           >
             Experience
@@ -69,9 +63,7 @@ const Header = () => {
           <a
             href="#projects"
             className={`nav-item ${
-              activeSection === "projects"
-                ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
-                : ""
+              activeSection === 'projects' ? 'bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900' : ''
             } `}
           >
             Projects
@@ -80,9 +72,7 @@ const Header = () => {
           <a
             href="#contact"
             className={`nav-item ${
-              activeSection === "contact"
-                ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
-                : ""
+              activeSection === 'contact' ? 'bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900' : ''
             } `}
           >
             Contact

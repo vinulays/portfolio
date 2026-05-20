@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+build
+.next
+
+# Environment & cache files
+.env
+.env.local
+
+# Lock files
+package-lock.json
+
+# Coverage & reports
+coverage
+
+# Public files
+public

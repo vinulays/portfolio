@@ -1,23 +1,23 @@
-import type { Metadata } from "next";
-import { Inter, Calistoga } from "next/font/google";
-import "./globals.css";
-import { twMerge } from "tailwind-merge";
-import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
+import type { Metadata } from 'next';
+import { Inter, Calistoga } from 'next/font/google';
+import './globals.css';
+import { twMerge } from 'tailwind-merge';
+import SmoothScrollProvider from '@/providers/SmoothScrollProvider';
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const calistoga = Calistoga({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["400"],
+  subsets: ['latin'],
+  variable: '--font-serif',
+  weight: ['400'],
 });
 
 export const metadata: Metadata = {
-  title: "Vinula Senarathne - Portfolio | Developer | Freelancer",
+  title: 'Vinula Senarathne - Portfolio | Developer | Freelancer',
   description:
-    "Vinula Senarathne - A professional portfolio showcasing web and mobile development, design, and projects",
+    'Vinula Senarathne - A professional portfolio showcasing web and mobile development, design, and projects',
   verification: {
-    google: "gzxo9DgfXzCvH-ihY6ezucgNXbltGrYxVU7kAsmgoLo",
+    google: 'gzxo9DgfXzCvH-ihY6ezucgNXbltGrYxVU7kAsmgoLo',
   },
 };
 
@@ -33,17 +33,17 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org/",
-              "@type": "Person",
-              name: "Vinula Senarathne",
-              url: "https://vinulasenarathne.vercel.app/",
-              image: "",
+              '@context': 'https://schema.org/',
+              '@type': 'Person',
+              name: 'Vinula Senarathne',
+              url: 'https://vinulasenarathne.vercel.app/',
+              image: '',
               sameAs: [
-                "https://www.linkedin.com/in/vinula-senarathne",
-                "https://github.com/vinulays",
-                "https://www.facebook.com/vinulasen",
+                'https://www.linkedin.com/in/vinula-senarathne',
+                'https://github.com/vinulays',
+                'https://www.facebook.com/vinulasen',
               ],
-              jobTitle: "Full Stack Developer",
+              jobTitle: 'Full Stack Developer',
             }),
           }}
         />
@@ -51,11 +51,7 @@ export default function RootLayout({
 
       <body
         suppressHydrationWarning
-        className={twMerge(
-          inter.variable,
-          calistoga.variable,
-          "bg-background text-foreground antialiased font-sans",
-        )}
+        className={twMerge(inter.variable, calistoga.variable, 'bg-background font-sans text-foreground antialiased')}
       >
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
