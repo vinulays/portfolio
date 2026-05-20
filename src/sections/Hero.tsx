@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="pt-24 md:pt-40">
+    <div id="hero" className="pt-24 md:pt-40">
       <div className="container">
         <div className="flex flex-col items-start">
           <div className="flex items-center gap-3 bg-gray-950">
