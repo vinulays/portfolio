@@ -1,91 +1,91 @@
-"use client";
+'use client';
 
-import liveDocsPage from "@/assets/images/live-docs.png";
-import convertifyPage from "@/assets/images/convertify.png";
-import ecommerceApp from "@/assets/images/ecommerce.png";
-import ecommerceAppMobile from "@/assets/images/ecommerce_mobile.png";
-import coworkingSpaceApp from "@/assets/images/coworking_space.png";
-import coworkingSpaceAppMobile from "@/assets/images/coworking_space._mobile.png";
-import recyChampApp from "@/assets/images/recychamp.png";
+import liveDocsPage from '@/assets/images/live-docs.png';
+import convertifyPage from '@/assets/images/convertify.png';
+import ecommerceApp from '@/assets/images/ecommerce.png';
+import ecommerceAppMobile from '@/assets/images/ecommerce_mobile.png';
+import coworkingSpaceApp from '@/assets/images/coworking_space.png';
+import coworkingSpaceAppMobile from '@/assets/images/coworking_space._mobile.png';
+import recyChampApp from '@/assets/images/recychamp.png';
 
-import Image from "next/image";
-import SectionHeader from "@/components/SectionHeader";
-import Card from "@/components/Card";
-import { useEffect, useState } from "react";
-import { ArrowUpRightIcon, CheckCircleIcon } from "lucide-react";
+import Image from 'next/image';
+import SectionHeader from '@/components/SectionHeader';
+import Card from '@/components/Card';
+import { useEffect, useState } from 'react';
+import { ArrowUpRightIcon, CheckCircleIcon } from 'lucide-react';
 
 const portfolioProjects = [
   {
     id: 1,
-    company: "Flutter",
-    year: "2024",
-    title: "Environment based mobile application",
+    company: 'Flutter',
+    year: '2024',
+    title: 'Environment based mobile application',
     results: [
-      { title: "State management using BLoC" },
-      { title: "Firebase integration" },
-      { title: "Stripe payment gateway" },
+      { title: 'State management using BLoC' },
+      { title: 'Firebase integration' },
+      { title: 'Stripe payment gateway' },
     ],
-    link: "https://github.com/vinulays/recychamp",
+    link: 'https://github.com/vinulays/recychamp',
     image: recyChampApp,
-    type: "mobile",
+    type: 'mobile',
   },
   {
     id: 2,
-    company: "Flutter",
-    year: "2024",
-    title: "E-commerce mobile application",
+    company: 'Flutter',
+    year: '2024',
+    title: 'E-commerce mobile application',
     results: [
-      { title: "State management using BLoC" },
-      { title: "Firebase integration" },
-      { title: "Google and Facebook authentication" },
+      { title: 'State management using BLoC' },
+      { title: 'Firebase integration' },
+      { title: 'Google and Facebook authentication' },
     ],
-    link: "https://github.com/vinulays/flutter-ecommerce",
+    link: 'https://github.com/vinulays/flutter-ecommerce',
     image: ecommerceApp,
     mobileImage: ecommerceAppMobile,
-    type: "mobile",
+    type: 'mobile',
   },
   {
     id: 3,
-    company: "Flutter",
-    year: "2024",
-    title: "Co-working space booking mobile application",
+    company: 'Flutter',
+    year: '2024',
+    title: 'Co-working space booking mobile application',
     results: [
-      { title: "State management using BLoC" },
-      { title: "PayPal payment gateway" },
-      { title: "Google maps custom marker integration" },
+      { title: 'State management using BLoC' },
+      { title: 'PayPal payment gateway' },
+      { title: 'Google maps custom marker integration' },
     ],
-    link: "",
+    link: '',
     image: coworkingSpaceApp,
     mobileImage: coworkingSpaceAppMobile,
-    type: "mobile",
+    type: 'mobile',
   },
   {
     id: 4,
-    company: "Next.js",
-    year: "2024",
-    title: "Realtime Collaborative Document Editing Platform",
+    company: 'Next.js',
+    year: '2024',
+    title: 'Realtime Collaborative Document Editing Platform',
     results: [
-      { title: "Realtime notifications" },
-      { title: "Authentication using clerk" },
-      { title: "Collaborative threads and comments" },
+      { title: 'Realtime notifications' },
+      { title: 'Authentication using clerk' },
+      { title: 'Collaborative threads and comments' },
     ],
-    link: "https://live-docs-vinula.vercel.app",
+    link: 'https://live-docs-vinula.vercel.app',
     image: liveDocsPage,
-    type: "web",
+    type: 'web',
   },
   {
     id: 5,
-    company: "Next.js",
-    year: "2024",
-    title: "Client side video converter application",
+    company: 'Next.js',
+    year: '2024',
+    title: 'Client side video converter application',
     results: [
-      { title: "Video conversion progress" },
+      { title: 'Video conversion progress' },
       { title: "Use client's system resources" },
-      { title: "Skip server hassles" },
+      { title: 'Skip server hassles' },
     ],
-    link: "https://convertify-vinulays.vercel.app",
+    link: 'https://convertify-vinulays.vercel.app',
     image: convertifyPage,
-    type: "web",
+    type: 'web',
   },
 ];
 
@@ -97,68 +97,63 @@ const Projects = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <section id="projects" className="pb-16 lg:py-24">
+    <section id="projects" className="py-16 pb-16 lg:py-24">
       <div className="container">
         <SectionHeader
           eyebrow="Real-world Results"
           title="Featured Projects"
           description="See how I transformed concepts into engaging digital experiences"
         />
-        <div className="flex flex-col mt-10 md:mt-20 gap-20">
+        <div className="mt-10 flex flex-col gap-20 md:mt-20">
           {portfolioProjects.map((project, index) => (
             <Card
               key={project.id}
-              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
+              className="sticky px-8 pt-8 pb-0 md:px-10 md:pt-12 lg:px-20 lg:pt-16"
               style={{
                 top: `calc(64px + ${index * 40}px)`,
               }}
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
-                  <div className="bg-linear-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                  <div className="inline-flex gap-2 bg-linear-to-r from-emerald-300 to-sky-400 bg-clip-text text-sm font-bold tracking-widest text-transparent uppercase">
                     <span>{project.company}</span>
                     <span>&bull;</span>
                     <span>{project.year}</span>
                   </div>
 
-                  <h3 className="font-serif text-2xl md:text-4xl mt-2 md:mt-5">
-                    {project.title}
-                  </h3>
+                  <h3 className="mt-2 font-serif text-2xl md:mt-5 md:text-4xl">{project.title}</h3>
 
-                  <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+                  <hr className="mt-4 border-t-2 border-white/5 md:mt-5" />
 
-                  <ul className="flex flex-col gap-4 mt-4 md:mt-5">
+                  <ul className="mt-4 flex flex-col gap-4 md:mt-5">
                     {project.results.map((result) => (
-                      <li
-                        key={result.title}
-                        className="flex gap-2 items-center text-sm md:text-base text-white/50"
-                      >
+                      <li key={result.title} className="flex items-center gap-2 text-sm text-white/50 md:text-base">
                         <CheckCircleIcon className="size-5 md:size-6" />
                         <span>{result.title}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <a href={project.link !== "" ? project.link : undefined}>
+                  <a href={project.link !== '' ? project.link : undefined}>
                     <button
-                      className={`bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 -mb-4 md:mb-0 ${
-                        !project.link && "cursor-not-allowed disabled"
+                      className={`mt-8 -mb-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-6 font-semibold text-gray-950 md:mb-0 md:w-auto ${
+                        !project.link && 'disabled cursor-not-allowed'
                       }`}
                     >
                       <span>
-                        {project.type === "web"
-                          ? "Visit Live Site"
-                          : project.link !== ""
-                            ? "Visit GitHub Repository"
-                            : "No link found"}
+                        {project.type === 'web'
+                          ? 'Visit Live Site'
+                          : project.link !== ''
+                            ? 'Visit GitHub Repository'
+                            : 'No link found'}
                       </span>
 
                       {project.link && <ArrowUpRightIcon className="size-4" />}
@@ -168,16 +163,12 @@ const Projects = () => {
 
                 <div className="relative">
                   <Image
-                    src={
-                      isMobile && project.mobileImage
-                        ? project.mobileImage
-                        : project.image
-                    }
+                    src={isMobile && project.mobileImage ? project.mobileImage : project.image}
                     alt={project.title}
-                    className={`lg:mb-0 lg:absolute lg:max-w-none ${
-                      project.type === "web"
-                        ? "lg:scale-105 mt-8 mb-8 lg:mt-6 lg:h-full lg:w-auto"
-                        : "lg:scale-125 mt-1 mb-0 lg:mt-12 lg:h-auto lg:w-full"
+                    className={`lg:absolute lg:mb-0 lg:max-w-none ${
+                      project.type === 'web'
+                        ? 'mt-8 mb-8 lg:mt-6 lg:h-full lg:w-auto lg:scale-105'
+                        : 'mt-1 mb-0 lg:mt-12 lg:h-auto lg:w-full lg:scale-125'
                     }`}
                   />
                 </div>

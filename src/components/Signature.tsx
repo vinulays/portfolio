@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,10 +34,10 @@ const Signature = () => {
         strokeDashoffset: 0,
         duration: 2,
         stagger: 0.15,
-        ease: "power2.out",
+        ease: 'power2.out',
         scrollTrigger: {
           trigger,
-          start: "top 80%",
+          start: 'top 80%',
           once: true,
         },
       });
@@ -47,13 +47,7 @@ const Signature = () => {
   }, []);
 
   return (
-    <svg
-      ref={svgRef}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 240 144"
-      className="w-32 h-auto"
-      fill="none"
-    >
+    <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 144" className="h-auto w-32" fill="none">
       <path
         ref={addToRefs}
         stroke="#d3d3d3"
