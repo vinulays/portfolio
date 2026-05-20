@@ -76,7 +76,7 @@
 }
 
 @utility container {
-  @apply lg:max-w-4xl;
+  @apply sm:max-w-4xl;
 }
 
 @layer base {
