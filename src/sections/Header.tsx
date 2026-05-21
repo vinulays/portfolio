@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -31,7 +32,7 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (isOpen) {
       gsap.fromTo('.mobile-link', { y: 20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.5 });
     }

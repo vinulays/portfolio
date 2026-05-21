@@ -1,9 +1,10 @@
 'use client';
 
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +18,8 @@ const Signature = () => {
     }
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
       const trigger = svgRef.current;
 
       pathRefs.current.forEach((path) => {
@@ -41,10 +42,9 @@ const Signature = () => {
           once: true,
         },
       });
-    }, svgRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: svgRef },
+  );
 
   return (
     <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 144" className="h-auto w-32" fill="none">
