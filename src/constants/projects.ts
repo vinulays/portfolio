@@ -1,82 +1,54 @@
-import liveDocsPage from '@/assets/images/live-docs.png';
-import convertifyPage from '@/assets/images/convertify.png';
-import ecommerceApp from '@/assets/images/ecommerce.png';
-import ecommerceAppMobile from '@/assets/images/ecommerce_mobile.png';
-import coworkingSpaceApp from '@/assets/images/coworking_space.png';
-import coworkingSpaceAppMobile from '@/assets/images/coworking_space._mobile.png';
-import recyChampApp from '@/assets/images/recychamp.png';
+import { Project } from '@/types';
 
-export const portfolioProjects = [
+export const portfolioProjects: Project[] = [
   {
-    id: 1,
-    company: 'Flutter',
-    year: '2024',
-    title: 'Environment based mobile application',
-    results: [
-      { title: 'State management using BLoC' },
-      { title: 'Firebase integration' },
-      { title: 'Stripe payment gateway' },
-    ],
-    link: 'https://github.com/vinulays/recychamp',
-    image: recyChampApp,
-    type: 'mobile',
+    slug: 'recychamp',
+    title: 'RecyChamp',
+    shortDescription: 'A mobile app to connect waste producers with recyclers.',
+    fullDescription:
+      'RecyChamp is a mobile application designed to connect waste producers with recyclers. It allows users to easily find nearby recycling centers, schedule pickups, and track their recycling efforts. The app promotes sustainable waste management practices and encourages users to contribute to a greener environment.',
+    gitHubUrl: 'https://github.com/vinulays/recychamp',
+    coverImage: '/projects/recychamp/cover.webp',
+    isFeatured: true,
   },
   {
-    id: 2,
-    company: 'Flutter',
-    year: '2024',
-    title: 'E-commerce mobile application',
-    results: [
-      { title: 'State management using BLoC' },
-      { title: 'Firebase integration' },
-      { title: 'Google and Facebook authentication' },
-    ],
-    link: 'https://github.com/vinulays/flutter-ecommerce',
-    image: ecommerceApp,
-    mobileImage: ecommerceAppMobile,
-    type: 'mobile',
+    slug: 'flutter-ecommerce',
+    title: 'E-commerce App',
+    shortDescription: 'A feature-rich e-commerce mobile application built with Flutter.',
+    fullDescription:
+      'This e-commerce app is built with Flutter and offers a wide range of features including state management using BLoC, Firebase integration, and Google and Facebook authentication.',
+    gitHubUrl: 'https://github.com/vinulays/flutter-ecommerce',
+    coverImage: '/projects/flutter-ecommerce/cover.webp',
+    isFeatured: true,
   },
   {
-    id: 3,
-    company: 'Flutter',
-    year: '2024',
-    title: 'Co-working space booking mobile application',
-    results: [
-      { title: 'State management using BLoC' },
-      { title: 'PayPal payment gateway' },
-      { title: 'Google maps custom marker integration' },
-    ],
-    link: '',
-    image: coworkingSpaceApp,
-    mobileImage: coworkingSpaceAppMobile,
-    type: 'mobile',
+    slug: 'myoffice-app',
+    company: 'ShredEX',
+    title: 'MyOffice App',
+    shortDescription: 'A mobile app to manage office resources and bookings.',
+    fullDescription:
+      'MyOffice is a mobile application designed to help employees manage office resources and bookings. It allows users to reserve meeting rooms, book desks, and access important office information. The app streamlines office management and enhances employee productivity.',
+    coverImage: '/projects/myoffice-app/cover.webp',
+    isFeatured: true,
   },
   {
-    id: 4,
-    company: 'Next.js',
-    year: '2024',
-    title: 'Realtime Collaborative Document Editing Platform',
-    results: [
-      { title: 'Realtime notifications' },
-      { title: 'Authentication using clerk' },
-      { title: 'Collaborative threads and comments' },
-    ],
-    link: 'https://live-docs-vinula.vercel.app',
-    image: liveDocsPage,
-    type: 'web',
+    slug: 'live-docs',
+    title: 'LiveDocs - Realtime Collaborative Document Editing Platform',
+    shortDescription: 'A web application for real-time collaborative document editing.',
+    fullDescription:
+      'LiveDocs is a web application that enables users to create, edit, and collaborate on documents in real-time. It features a rich text editor, live cursor tracking, and seamless synchronization across multiple users.',
+    liveUrl: 'https://live-docs-vinula.vercel.app',
+    coverImage: '/projects/live-docs/cover.webp',
+    isFeatured: true,
   },
   {
-    id: 5,
-    company: 'Next.js',
-    year: '2024',
-    title: 'Client side video converter application',
-    results: [
-      { title: 'Video conversion progress' },
-      { title: "Use client's system resources" },
-      { title: 'Skip server hassles' },
-    ],
-    link: 'https://convertify-vinulays.vercel.app',
-    image: convertifyPage,
-    type: 'web',
+    slug: 'convertify',
+    title: 'Convertify - Client-Side Video Converter',
+    shortDescription: 'A web application for client-side video conversion.',
+    fullDescription:
+      'Convertify is a web application that allows users to convert videos directly in their browser without uploading them to a server. It leverages the power of WebAssembly and FFmpeg to perform video conversion tasks efficiently on the client side.',
+    liveUrl: 'https://convertify-vinulays.vercel.app',
+    coverImage: '/projects/convertify/cover.webp',
+    isFeatured: true,
   },
 ];
