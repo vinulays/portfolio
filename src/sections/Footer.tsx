@@ -1,8 +1,9 @@
 'use client';
 
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,12 +12,12 @@ const Footer = () => {
 
   const textRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!textRef.current) {
-      return;
-    }
+  useGSAP(
+    () => {
+      if (!textRef.current) {
+        return;
+      }
 
-    const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
       mm.add('(min-width: 768px)', () => {
@@ -57,10 +58,9 @@ const Footer = () => {
           },
         );
       });
-    });
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: textRef },
+  );
 
   return (
     <footer className="relative overflow-hidden pt-2 pb-0">

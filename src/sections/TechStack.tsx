@@ -1,8 +1,9 @@
 'use client';
 
 import TechIcon from '@/components/TechIcon';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import {
   siDocker,
@@ -53,18 +54,18 @@ const icons = [
 const TechStack = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
       gsap.to('.marquee-track', {
         xPercent: -50,
         duration: 20,
         ease: 'none',
         repeat: -1,
+        yoyo: false,
       });
-    }, marqueeRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: marqueeRef },
+  );
 
   return (
     <div className="container">
