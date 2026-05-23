@@ -15,10 +15,10 @@ const Projects = () => {
     () => {
       gsap.from('.project-card', {
         opacity: 0,
-        y: 50,
+        y: 80,
         duration: 0.8,
         ease: 'power3.out',
-        stagger: 0.12,
+        stagger: 0.15,
 
         scrollTrigger: {
           trigger: sectionRef.current,
