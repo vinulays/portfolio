@@ -3,6 +3,7 @@ import { Inter, Calistoga } from 'next/font/google';
 import './globals.css';
 import { twMerge } from 'tailwind-merge';
 import SmoothScrollProvider from '@/providers/SmoothScrollProvider';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -54,6 +55,8 @@ export default function RootLayout({
         className={twMerge(inter.variable, calistoga.variable, 'bg-background font-sans text-foreground antialiased')}
       >
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+
+        <Analytics />
       </body>
     </html>
   );
