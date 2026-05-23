@@ -15,7 +15,7 @@ const Experience = () => {
               return (
                 <div key={index} className="relative flex items-start justify-between gap-8">
                   <div className="relative z-10">
-                    <div className="border-border flex h-4 w-4 items-center justify-center rounded-full border bg-background"></div>
+                    <div className="flex h-4 w-4 items-center justify-center rounded-full border border-white bg-background"></div>
                   </div>
 
                   <div className="max-w-2xl space-y-8">
