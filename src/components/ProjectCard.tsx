@@ -5,11 +5,15 @@ import { FiArrowUpRight } from 'react-icons/fi';
 
 interface ProjectCardProps {
   project: Project;
+  onClick?: () => void;
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
+function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
-    <div className="bg-card cursor-pointer space-y-4 rounded-xl border border-muted p-4 transition-colors hover:bg-muted/50">
+    <div
+      className="bg-card cursor-pointer space-y-4 rounded-xl border border-muted p-4 transition-colors hover:bg-muted/50"
+      onClick={onClick}
+    >
       <div className="relative flex aspect-4/3 items-center justify-center overflow-hidden rounded-xl bg-muted">
         {project.company && (
           <div className="absolute top-3 right-3 z-10 rounded-md bg-black/40 px-2 py-1 text-[10px] text-white backdrop-blur-md">
