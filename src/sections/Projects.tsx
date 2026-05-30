@@ -7,9 +7,16 @@ import { Project } from '@/types';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useRouter } from 'next/navigation';
 
 const Projects = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const router = useRouter();
+
+  const navigateToProject = (slug: string) => {
+    router.push(`/projects/${slug}`);
+  };
 
   useGSAP(
     () => {
@@ -46,7 +53,7 @@ const Projects = () => {
             .filter((project: Project) => project.isFeatured)
             .map((project: Project) => (
               <div key={project.slug} className="project-card">
-                <ProjectCard project={project} />
+                <ProjectCard project={project} onClick={() => navigateToProject(project.slug)} />
               </div>
             ))}
         </div>
