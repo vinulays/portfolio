@@ -1,6 +1,6 @@
 'use client';
 
-import Carousel from '@/components/Carousel ';
+import ProjectCarousel from '@/components/ProjectCarousel ';
 import { portfolioProjects } from '@/constants/projects';
 import { Project } from '@/types';
 import { useParams } from 'next/navigation';
@@ -18,7 +18,7 @@ function ProjectDetails() {
 
   return (
     <div>
-      <Carousel project={project} />
+      <ProjectCarousel project={project} />
     </div>
   );
 }

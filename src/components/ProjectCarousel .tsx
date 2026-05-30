@@ -1,16 +1,16 @@
 'use client';
 
-import { useCarousel } from '@/hooks/useCarousel';
+import { useProjectCarousel } from '@/hooks/useProjectCarousel';
 import { Project } from '@/types';
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-interface CarouselProps {
+interface ProjectCarouselProps {
   project: Project;
 }
 
-function Carousel({ project }: CarouselProps) {
-  const { emblaRef, selectedIndex, scrollPrev, scrollNext, scrollTo } = useCarousel();
+function ProjectCarousel({ project }: ProjectCarouselProps) {
+  const { emblaRef, selectedIndex, scrollPrev, scrollNext, scrollTo } = useProjectCarousel();
 
   const galleryLength = project.gallery ? project.gallery.length : 0;
 
@@ -99,4 +99,4 @@ function Carousel({ project }: CarouselProps) {
   );
 }
 
-export default Carousel;
+export default ProjectCarousel;

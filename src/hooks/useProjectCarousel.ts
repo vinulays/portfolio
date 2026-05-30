@@ -1,7 +1,7 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
 
-export function useCarousel() {
+export function useProjectCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
   });
