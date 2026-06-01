@@ -73,35 +73,38 @@ function ProjectCarousel({ project }: ProjectCarouselProps) {
           )}
         </div>
 
-        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 transform items-center gap-2 md:flex">
-          {project.gallery.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              className={`h-2 rounded-full transition-all duration-300 ease-out ${
-                selectedIndex === index ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'
-              }`}
-            />
-          ))}
-        </div>
+        {galleryLength > 1 && (
+          <>
+            <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 transform items-center gap-2 md:flex">
+              {project.gallery.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollTo(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ease-out ${
+                    selectedIndex === index ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="absolute right-6 bottom-6 hidden items-center gap-3 md:flex">
+              <button
+                onClick={scrollPrev}
+                disabled={selectedIndex === 0}
+                className="cursor-pointer rounded-full bg-white/20 p-4 backdrop-blur transition-colors hover:bg-white/30 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-white/20"
+              >
+                <FaChevronLeft />
+              </button>
 
-        <div className="absolute right-6 bottom-6 hidden items-center gap-3 md:flex">
-          <button
-            onClick={scrollPrev}
-            disabled={selectedIndex === 0}
-            className="cursor-pointer rounded-full bg-white/20 p-4 backdrop-blur transition-colors hover:bg-white/30 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-white/20"
-          >
-            <FaChevronLeft />
-          </button>
-
-          <button
-            onClick={scrollNext}
-            disabled={selectedIndex === galleryLength - 1}
-            className="cursor-pointer rounded-full bg-white/20 p-4 backdrop-blur transition-colors hover:bg-white/30 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-white/20"
-          >
-            <FaChevronRight />
-          </button>
-        </div>
+              <button
+                onClick={scrollNext}
+                disabled={selectedIndex === galleryLength - 1}
+                className="cursor-pointer rounded-full bg-white/20 p-4 backdrop-blur transition-colors hover:bg-white/30 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-white/20"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

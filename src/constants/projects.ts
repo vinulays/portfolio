@@ -97,7 +97,9 @@ export const portfolioProjects: Project[] = [
     gallery: ['/projects/live-docs/cover.webp'],
     technologies: [
       { key: 'nextjs', name: 'Next.js' },
-      { key: 'nodejs', name: 'Node.js' },
+      { key: 'tailwindcss', name: 'Tailwind CSS' },
+      { key: 'shadcnui', name: 'Shadcn UI' },
+      { key: 'clerk', name: 'Clerk' },
       { key: 'socketio', name: 'Socket.IO' },
     ],
     company: 'Personal Project',

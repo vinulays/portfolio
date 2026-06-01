@@ -14,6 +14,8 @@ import {
   SiGooglemaps,
   SiTailwindcss,
   SiWebassembly,
+  SiClerk,
+  SiShadcnui,
 } from 'react-icons/si';
 
 export const techIcons: Record<string, React.ReactNode> = {
@@ -35,4 +37,6 @@ export const techIcons: Record<string, React.ReactNode> = {
   googlemaps: <SiGooglemaps />,
   tailwindcss: <SiTailwindcss />,
   webassembly: <SiWebassembly />,
+  clerk: <SiClerk />,
+  shadcnui: <SiShadcnui />,
 };
