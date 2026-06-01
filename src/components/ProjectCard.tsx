@@ -37,8 +37,8 @@ function ProjectCard({ project, onClick }: ProjectCardProps) {
       {project.technologies?.length ? (
         <div className="flex flex-wrap gap-1.5 pt-1">
           {project.technologies.slice(0, 4).map((tech) => (
-            <span key={tech} className="rounded-md bg-muted px-2 py-1 text-[10px] text-muted-foreground">
-              {tech}
+            <span key={tech.key} className="rounded-md bg-muted px-2 py-1 text-[10px] text-muted-foreground">
+              {tech.name}
             </span>
           ))}
         </div>

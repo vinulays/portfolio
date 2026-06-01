@@ -1,0 +1,38 @@
+import React from 'react';
+
+import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaStripe, FaLaravel } from 'react-icons/fa';
+import { FaFlutter } from 'react-icons/fa6';
+import {
+  SiCodemagic,
+  SiFfmpeg,
+  SiFirebase,
+  SiJavascript,
+  SiNestjs,
+  SiNextdotjs,
+  SiPostgresql,
+  SiSocketdotio,
+  SiGooglemaps,
+  SiTailwindcss,
+  SiWebassembly,
+} from 'react-icons/si';
+
+export const techIcons: Record<string, React.ReactNode> = {
+  reactjs: <FaReact />,
+  nextjs: <SiNextdotjs />,
+  nodejs: <FaNodeJs />,
+  nestjs: <SiNestjs />,
+  javascript: <SiJavascript />,
+  flutter: <FaFlutter />,
+  docker: <FaDocker />,
+  git: <FaGitAlt />,
+  firebase: <SiFirebase />,
+  postgresql: <SiPostgresql />,
+  ffmpeg: <SiFfmpeg />,
+  socketio: <SiSocketdotio />,
+  stripeapi: <FaStripe />,
+  codemagic: <SiCodemagic />,
+  laravel: <FaLaravel />,
+  googlemaps: <SiGooglemaps />,
+  tailwindcss: <SiTailwindcss />,
+  webassembly: <SiWebassembly />,
+};
