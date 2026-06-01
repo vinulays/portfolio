@@ -24,7 +24,13 @@ function ProjectCarousel({ project }: ProjectCarouselProps) {
         <div className="flex">
           {project.gallery.map((image) => (
             <div key={image} className="relative h-[70vh] w-full shrink-0">
-              <Image src={image} alt="" fill className="bg-white object-contain" />
+              <Image
+                src={image}
+                alt=""
+                fill
+                className="bg-white object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           ))}
         </div>

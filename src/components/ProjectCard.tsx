@@ -22,7 +22,13 @@ function ProjectCard({ project, onClick }: ProjectCardProps) {
         )}
 
         {project.coverImage ? (
-          <Image src={project.coverImage} alt={project.title} fill className="object-contain p-4" />
+          <Image
+            src={project.coverImage}
+            alt={project.title}
+            fill
+            className="object-contain p-4"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         ) : (
           <div className="h-full w-full" />
         )}
