@@ -42,30 +42,29 @@ function ProjectCarousel({ project }: ProjectCarouselProps) {
 
           <p className="text-sm text-white/70">{project.shortDescription}</p>
 
-          {project.liveUrl ||
-            (project.gitHubUrl && (
-              <div className="flex items-center gap-3 pt-2">
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    className="rounded-lg bg-white px-3 py-1.5 text-xs text-black transition hover:opacity-90"
-                  >
-                    Live Demo
-                  </a>
-                )}
+          {(project.liveUrl || project.gitHubUrl) && (
+            <div className="flex items-center gap-3 pt-2">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  className="rounded-lg bg-white px-3 py-1.5 text-xs text-black transition hover:opacity-90"
+                >
+                  Live Demo
+                </a>
+              )}
 
-                {project.gitHubUrl && (
-                  <a
-                    href={project.gitHubUrl}
-                    target="_blank"
-                    className="rounded-lg border border-white/20 px-3 py-1.5 text-xs text-white transition hover:bg-white/10"
-                  >
-                    GitHub
-                  </a>
-                )}
-              </div>
-            ))}
+              {project.gitHubUrl && (
+                <a
+                  href={project.gitHubUrl}
+                  target="_blank"
+                  className="rounded-lg border border-white/20 px-3 py-1.5 text-xs text-white transition hover:bg-white/10"
+                >
+                  GitHub
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 transform items-center gap-2 md:flex">
