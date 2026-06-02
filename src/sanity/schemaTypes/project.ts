@@ -61,6 +61,71 @@ export const projectType = defineType({
     }),
 
     defineField({
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'key',
+              title: 'Key',
+              type: 'string',
+            },
+            {
+              name: 'name',
+              title: 'Name',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    }),
+
+    defineField({
+      name: 'responsibilities',
+      title: 'Responsibilities',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
+
+    defineField({
+      name: 'features',
+      title: 'Features',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+    }),
+
+    defineField({
+      name: 'liveUrl',
+      title: 'Live URL',
+      type: 'url',
+    }),
+
+    defineField({
+      name: 'gitHubUrl',
+      title: 'GitHub URL',
+      type: 'url',
+    }),
+
+    defineField({
       name: 'featured',
       title: 'Featured',
       type: 'boolean',
