@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaStripe, FaLaravel } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaStripe, FaLaravel, FaAws } from 'react-icons/fa';
 import { FaFlutter } from 'react-icons/fa6';
 import {
   SiCodemagic,
@@ -39,4 +39,5 @@ export const techIcons: Record<string, React.ReactNode> = {
   webassembly: <SiWebassembly />,
   clerk: <SiClerk />,
   shadcnui: <SiShadcnui />,
+  aws: <FaAws />,
 };

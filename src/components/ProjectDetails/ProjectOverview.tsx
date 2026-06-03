@@ -12,11 +12,11 @@ function ProjectOverview({ project }: ProjectOverviewProps) {
       <SectionHeader title="Project Overview" />
 
       <div className="grid gap-10 lg:grid-cols-3">
-        <div className="text-base leading-relaxed text-muted-foreground md:text-lg lg:col-span-2">
+        <div className="prose max-w-none text-base leading-relaxed text-muted-foreground prose-invert md:text-lg lg:col-span-2">
           <PortableText value={project.fullDescription} />
         </div>
 
-        <div className="self-center rounded-2xl border border-muted-foreground/10 bg-muted/20 p-6">
+        <div className="self-start rounded-2xl border border-muted-foreground/10 bg-muted/20 p-6">
           <SectionHeader title="Project Info" />
 
           <div className="space-y-4">

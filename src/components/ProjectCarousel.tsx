@@ -23,14 +23,15 @@ function ProjectCarousel({ project }: ProjectCarouselProps) {
     <div className="space-y-4">
       <div ref={emblaRef} className="relative overflow-hidden">
         <div className="flex">
-          {project.gallery.map((image) => (
-            <div key={image} className="relative h-[70vh] w-full shrink-0">
+          {project.gallery.map((image, index) => (
+            <div key={index} className="relative h-[70vh] w-full shrink-0">
               <Image
-                src={urlFor(image).width(1200).url()}
-                alt=""
+                src={urlFor(image).width(3000).url()}
+                alt={`${project.title} image ${index + 1}`}
                 fill
                 className="bg-white object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="100vw"
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
