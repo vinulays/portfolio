@@ -16,6 +16,8 @@ import {
   SiWebassembly,
   SiClerk,
   SiShadcnui,
+  SiSupabase,
+  SiGithubactions,
 } from 'react-icons/si';
 
 export const techIcons: Record<string, React.ReactNode> = {
@@ -40,4 +42,6 @@ export const techIcons: Record<string, React.ReactNode> = {
   clerk: <SiClerk />,
   shadcnui: <SiShadcnui />,
   aws: <FaAws />,
+  supabase: <SiSupabase />,
+  githubactions: <SiGithubactions />,
 };
