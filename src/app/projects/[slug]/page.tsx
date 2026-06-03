@@ -3,13 +3,43 @@ import ProjectFeatures from '@/components/ProjectDetails/ProjectFeatures';
 import ProjectOverview from '@/components/ProjectDetails/ProjectOverview';
 import ProjectResponsibilities from '@/components/ProjectDetails/ProjectResponsibilities';
 import ProjectTechStack from '@/components/ProjectDetails/ProjectTechStack';
-import { getProjectBySlug } from '@/sanity/services/projectService';
+import { getAllProjects, getProjectBySlug } from '@/sanity/services/projectService';
+import { Project } from '@/types';
 import { notFound } from 'next/navigation';
 
 interface ProjectDetailsProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  const projects = await getAllProjects();
+
+  return projects.map((project: Project) => ({
+    slug: project.slug.current,
+  }));
+}
+
+export async function generateMetadata({ params }: ProjectDetailsProps) {
+  const { slug } = await params;
+
+  const project = await getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+    };
+  }
+
+  return {
+    title: `${project.title} | Vinula Senarathne`,
+    description: project.shortDescription,
+    openGraph: {
+      title: project.title,
+      description: project.shortDescription,
+    },
+  };
 }
 
 async function ProjectDetails({ params }: ProjectDetailsProps) {
