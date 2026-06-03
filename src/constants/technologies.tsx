@@ -20,6 +20,11 @@ import {
   SiGithubactions,
   SiPuppeteer,
   SiMui,
+  SiVictoriametrics,
+  SiRedis,
+  SiGrafana,
+  SiPrometheus,
+  SiReactquery,
 } from 'react-icons/si';
 
 export const techIcons: Record<string, React.ReactNode> = {
@@ -48,4 +53,9 @@ export const techIcons: Record<string, React.ReactNode> = {
   githubactions: <SiGithubactions />,
   puppeteer: <SiPuppeteer />,
   mui: <SiMui />,
+  victoriametrics: <SiVictoriametrics />,
+  redis: <SiRedis />,
+  grafana: <SiGrafana />,
+  prometheus: <SiPrometheus />,
+  reactquery: <SiReactquery />,
 };
