@@ -1,3 +1,4 @@
+import { urlFor } from '@/sanity/lib/image';
 import { Project } from '@/types';
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
@@ -23,11 +24,12 @@ function ProjectCard({ project, onClick }: ProjectCardProps) {
 
         {project.coverImage ? (
           <Image
-            src={project.coverImage}
+            src={urlFor(project.coverImage).width(800).url()}
             alt={project.title}
             fill
             className="object-contain p-4"
             sizes="(max-width: 768px) 100vw, 50vw"
+            loading="eager"
           />
         ) : (
           <div className="h-full w-full" />

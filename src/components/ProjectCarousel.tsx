@@ -1,6 +1,7 @@
 'use client';
 
 import { useProjectCarousel } from '@/hooks/useProjectCarousel';
+import { urlFor } from '@/sanity/lib/image';
 import { Project } from '@/types';
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -25,7 +26,7 @@ function ProjectCarousel({ project }: ProjectCarouselProps) {
           {project.gallery.map((image) => (
             <div key={image} className="relative h-[70vh] w-full shrink-0">
               <Image
-                src={image}
+                src={urlFor(image).width(1200).url()}
                 alt=""
                 fill
                 className="bg-white object-contain"

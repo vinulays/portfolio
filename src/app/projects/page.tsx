@@ -1,18 +1,10 @@
-'use client';
-
-import ProjectCard from '@/components/ProjectCard';
-import { portfolioProjects } from '@/constants/projects';
-import { Project } from '@/types';
+import ProjectsPageGrid from '@/components/ProjectsPageGrid';
+import { getAllProjects } from '@/sanity/services/projectService';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { FaChevronLeft } from 'react-icons/fa6';
 
-function ProjectsPage() {
-  const router = useRouter();
-
-  const navigateToProject = (slug: string) => {
-    router.push(`/projects/${slug}`);
-  };
+async function ProjectsPage() {
+  const projects = await getAllProjects();
 
   return (
     <main className="relative py-14 lg:py-16">
@@ -35,11 +27,7 @@ function ProjectsPage() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {portfolioProjects.map((project: Project) => (
-            <ProjectCard key={project.slug} project={project} onClick={() => navigateToProject(project.slug)} />
-          ))}
-        </div>
+        <ProjectsPageGrid projects={projects} />
       </div>
     </main>
   );

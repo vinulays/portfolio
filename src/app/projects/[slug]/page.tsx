@@ -1,23 +1,24 @@
-'use client';
-
 import ProjectCarousel from '@/components/ProjectCarousel';
 import ProjectFeatures from '@/components/ProjectDetails/ProjectFeatures';
 import ProjectOverview from '@/components/ProjectDetails/ProjectOverview';
 import ProjectResponsibilities from '@/components/ProjectDetails/ProjectResponsibilities';
 import ProjectTechStack from '@/components/ProjectDetails/ProjectTechStack';
-import { portfolioProjects } from '@/constants/projects';
-import { Project } from '@/types';
-import { useParams } from 'next/navigation';
+import { getProjectBySlug } from '@/sanity/services/projectService';
+import { notFound } from 'next/navigation';
 
-function ProjectDetails() {
-  const params = useParams();
+interface ProjectDetailsProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
 
-  const { slug } = params;
+async function ProjectDetails({ params }: ProjectDetailsProps) {
+  const { slug } = await params;
 
-  const project = portfolioProjects.find((project: Project) => project.slug === slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
-    return <div>Project not found</div>;
+    notFound();
   }
 
   return (
