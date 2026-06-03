@@ -1,23 +1,54 @@
-'use client';
-
 import ProjectCarousel from '@/components/ProjectCarousel';
 import ProjectFeatures from '@/components/ProjectDetails/ProjectFeatures';
 import ProjectOverview from '@/components/ProjectDetails/ProjectOverview';
 import ProjectResponsibilities from '@/components/ProjectDetails/ProjectResponsibilities';
 import ProjectTechStack from '@/components/ProjectDetails/ProjectTechStack';
-import { portfolioProjects } from '@/constants/projects';
+import { getAllProjects, getProjectBySlug } from '@/sanity/services/projectService';
 import { Project } from '@/types';
-import { useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
-function ProjectDetails() {
-  const params = useParams();
+interface ProjectDetailsProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
 
-  const { slug } = params;
+export async function generateStaticParams() {
+  const projects = await getAllProjects();
 
-  const project = portfolioProjects.find((project: Project) => project.slug === slug);
+  return projects.map((project: Project) => ({
+    slug: project.slug.current,
+  }));
+}
+
+export async function generateMetadata({ params }: ProjectDetailsProps) {
+  const { slug } = await params;
+
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
-    return <div>Project not found</div>;
+    return {
+      title: 'Project Not Found',
+    };
+  }
+
+  return {
+    title: `${project.title} | Vinula Senarathne`,
+    description: project.shortDescription,
+    openGraph: {
+      title: project.title,
+      description: project.shortDescription,
+    },
+  };
+}
+
+async function ProjectDetails({ params }: ProjectDetailsProps) {
+  const { slug } = await params;
+
+  const project = await getProjectBySlug(slug);
+
+  if (!project) {
+    notFound();
   }
 
   return (

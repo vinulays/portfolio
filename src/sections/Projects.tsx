@@ -1,44 +1,12 @@
-'use client';
-
-import { portfolioProjects } from '@/constants/projects';
 import Link from 'next/link';
-import ProjectCard from '@/components/ProjectCard';
-import { Project } from '@/types';
-import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { useRouter } from 'next/navigation';
+import { getFeaturedProjects } from '@/sanity/services/projectService';
+import ProjectsGrid from '@/components/ProjectsGrid';
 
-const Projects = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const router = useRouter();
-
-  const navigateToProject = (slug: string) => {
-    router.push(`/projects/${slug}`);
-  };
-
-  useGSAP(
-    () => {
-      gsap.from('.project-card', {
-        opacity: 0,
-        y: 80,
-        duration: 0.8,
-        ease: 'power3.out',
-        stagger: 0.15,
-
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          once: true,
-        },
-      });
-    },
-    { scope: sectionRef },
-  );
+const Projects = async () => {
+  const projects = await getFeaturedProjects();
 
   return (
-    <section id="projects" className="py-16 lg:py-24" ref={sectionRef}>
+    <section id="projects" className="py-16 lg:py-24">
       <div className="container space-y-8">
         <div className="flex items-center justify-between text-muted-foreground">
           <div>PROJECTS</div>
@@ -48,15 +16,7 @@ const Projects = () => {
           </Link>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {portfolioProjects
-            .filter((project: Project) => project.isFeatured)
-            .map((project: Project) => (
-              <div key={project.slug} className="project-card">
-                <ProjectCard project={project} onClick={() => navigateToProject(project.slug)} />
-              </div>
-            ))}
-        </div>
+        <ProjectsGrid projects={projects} />
       </div>
     </section>
   );

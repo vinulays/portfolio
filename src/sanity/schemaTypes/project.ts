@@ -49,6 +49,12 @@ export const projectType = defineType({
     }),
 
     defineField({
+      name: 'role',
+      title: 'Role',
+      type: 'string',
+    }),
+
+    defineField({
       name: 'duration',
       title: 'Duration',
       type: 'string',
