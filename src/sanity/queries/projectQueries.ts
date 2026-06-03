@@ -8,7 +8,9 @@ export const featuredProjectsQuery = groq`
     shortDescription,
     coverImage,
     company,
-    featured
+    featured,
+    liveUrl,
+    gitHubUrl
   }
 `;
 
@@ -21,7 +23,9 @@ export const allProjectsQuery = groq`
     company,
     coverImage,
     company,
-    featured
+    featured,
+    liveUrl,
+    gitHubUrl
   }
 `;
 
