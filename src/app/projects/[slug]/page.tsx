@@ -1,4 +1,5 @@
 import ProjectCarousel from '@/components/ProjectCarousel';
+import ProjectBackButton from '@/components/ProjectBackButton';
 import ProjectFeatures from '@/components/ProjectDetails/ProjectFeatures';
 import ProjectOverview from '@/components/ProjectDetails/ProjectOverview';
 import ProjectResponsibilities from '@/components/ProjectDetails/ProjectResponsibilities';
@@ -52,21 +53,24 @@ async function ProjectDetails({ params }: ProjectDetailsProps) {
   }
 
   return (
-    <div className="space-y-14 pb-8">
-      <ProjectCarousel project={project} />
+    <>
+      <div className="space-y-14 pb-[calc(7rem+env(safe-area-inset-bottom))]">
+        <ProjectCarousel project={project} />
 
-      <ProjectOverview project={project} />
+        <ProjectOverview project={project} />
 
-      {project.features && project.features.length > 0 && <ProjectFeatures features={project.features} />}
+        {project.features && project.features.length > 0 && <ProjectFeatures features={project.features} />}
 
-      {project.responsibilities && project.responsibilities.length > 0 && (
-        <ProjectResponsibilities responsibilities={project.responsibilities} />
-      )}
+        {project.responsibilities && project.responsibilities.length > 0 && (
+          <ProjectResponsibilities responsibilities={project.responsibilities} />
+        )}
 
-      {project.technologies && project.technologies.length > 0 && (
-        <ProjectTechStack technologies={project.technologies} />
-      )}
-    </div>
+        {project.technologies && project.technologies.length > 0 && (
+          <ProjectTechStack technologies={project.technologies} />
+        )}
+      </div>
+      <ProjectBackButton />
+    </>
   );
 }
 
